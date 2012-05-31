@@ -3,5 +3,5 @@ check process <%= @worker_name %>
   start program = "/engineyard/bin/dj <%= @app_name %> start <%= @framework_env %> <%= @worker_name %>" with timeout 60 seconds
   stop program = "/engineyard/bin/dj <%= @app_name %> stop <%= @framework_env %> <%= @worker_name %>" with timeout 60 seconds
   if totalmem is greater than 300 MB then restart # eating up memory?
-  it totalmem is less than 1 MB then restart # ARE YOU THERE?
+  if totalmem is less than 1 MB then restart # ARE YOU THERE?
   group dj_<%= @app_name %>
